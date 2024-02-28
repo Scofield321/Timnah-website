@@ -2,16 +2,22 @@
   <div class="nav-container">
     <section class="navigation" ref="navbar">
       <div class="image-school-name">
-        <img
-          src="https://timnahschools.com/wp-content/uploads/2023/08/Untitled-1-1.png"
-          alt="School logo"
-        />
+        <router-link class="logo-link" to="/">
+          <img
+            src="https://timnahschools.com/wp-content/uploads/2023/08/Untitled-1-1.png"
+            alt="School logo"
+          />
+        </router-link>
         <div class="school-name-motto">
-          <h2>
-            TIMNAH SCHOOLS <br />
-            LUWERO
-          </h2>
-          <h4>OUR FUTURE BEGINS HERE</h4>
+          <router-link class="logo-link" to="/">
+            <h2>
+              TIMNAH SCHOOLS <br />
+              LUWERO
+            </h2>
+          </router-link>
+          <router-link class="logo-link" to="/">
+            <h4>OUR FUTURE BEGINS HERE</h4>
+          </router-link>
         </div>
       </div>
       <div class="links">
@@ -59,10 +65,12 @@
       <!-- Navbar content -->
       <div class="new-navbar-content">
         <div class="image-school-name">
-          <img
-            src="https://timnahschools.com/wp-content/uploads/2023/08/Untitled-1-1.png"
-            alt="School logo"
-          />
+          <router-link class="logo-link" to="/">
+            <img
+              src="https://timnahschools.com/wp-content/uploads/2023/08/Untitled-1-1.png"
+              alt="School logo"
+            />
+          </router-link>
           <div class="school-name-motto">
             <h2>
               TIMNAH SCHOOLS <br />
@@ -185,7 +193,9 @@ export default {
 .visible {
   display: block !important;
 }
-
+.logo-link {
+  cursor: pointer;
+}
 /* Hide original navbar when scrolled */
 .image-school-name {
   display: flex;
@@ -200,15 +210,19 @@ export default {
 
 .school-name-motto h2 {
   font-size: 1.2rem;
+  font-weight: 900;
 }
 
 .school-name-motto h4 {
   font-size: 0.5rem;
   font-style: italic;
   color: #000;
-  font-weight: 200;
+  font-weight: 900;
 }
-
+a {
+  text-decoration: none;
+  color: #055228;
+}
 .navigation,
 .new-navbar-content {
   display: flex;
@@ -232,8 +246,7 @@ export default {
   margin-right: 25px;
   font-size: 1.4rem;
   color: #055228;
-  /* transform: translateZ(0); */
-  /* transition: transform 0.3s ease; */
+  font-weight: 400;
 }
 .links a::before {
   content: "";
