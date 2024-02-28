@@ -68,6 +68,10 @@
       </div>
     </section>
     <section class="calender">
+      <h2 class="academic-calender">
+        <i class="fa-regular fa-calendar-days"></i
+        ><span>Academic Calender</span>
+      </h2>
       <h1>2024</h1>
       <div class="different-calender">
         <div>
@@ -489,15 +493,21 @@ article p {
   font-size: 1.5rem;
   word-break: break-word;
 }
+
+/* styling calender */
 .calender {
-  height: 40rem;
+  height: 45rem;
   margin-top: -35rem;
   background-color: #fff;
 }
 .calender i {
   color: #81ca00;
 }
-
+.academic-calender {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-top: 2rem;
+}
 .calender h1 {
   margin: 0 0 3rem 5rem;
   padding-top: 2rem;
