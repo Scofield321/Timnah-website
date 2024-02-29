@@ -13,6 +13,14 @@ import MissionVision from './components/MissionVision.vue'
 import SchoolPolicies from './components/SchoolPolicies.vue'
 import BecomingStudent from './components/BecomingStudent.vue'
 import RequestInfo from './components/RequestInfo.vue'
+import LibraryFacility from './components/facilities/LibraryFacility.vue'
+import IctFacility from './components/facilities/IctFacility.vue'
+import HealthyFacility from './components/facilities/HealthyFacility.vue'
+import DormitoryFacility from './components/facilities/DormitoryFacility.vue'
+import DramaFacility from './components/facilities/DramaFacility.vue'
+import CafeteriaFacility from './components/facilities/CafeteriaFacility.vue'
+import SportsFacility from './components/facilities/SportsFacility.vue'
+
 
 const app = createApp(App)
 const router = createRouter({
@@ -28,6 +36,13 @@ const router = createRouter({
   { path: '/school-policies', component: SchoolPolicies },
   { path: '/how-to-be-our-student', component: BecomingStudent },
   { path: '/request-info', component: RequestInfo },
+  { path: '/library', component: LibraryFacility },
+  { path: '/ict', component: IctFacility },
+  { path: '/healthy', component: HealthyFacility },
+  { path: '/drama', component: DramaFacility },
+  { path: '/dormitory', component: DormitoryFacility },
+  { path: '/cafeteria', component: CafeteriaFacility },
+  { path: '/sports', component: SportsFacility },
 ]
 })
 app.use(ElementPlus);

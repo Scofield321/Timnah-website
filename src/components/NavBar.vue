@@ -55,10 +55,11 @@
             <!-- Dropdown content for facilities link -->
             <router-link to="/ict">ICT</router-link>
             <router-link to="/Library">Library</router-link>
-            <router-link to="/request-info">Drama</router-link>
+            <router-link to="/drama">Drama & Art</router-link>
             <router-link to="/healthy">Healthy</router-link>
             <router-link to="/dormitory">Dormitory</router-link>
-            <router-link to="/request-info">Cafeteria</router-link>
+            <router-link to="/cafeteria">Cafeteria</router-link>
+            <router-link to="/sports">Sports</router-link>
           </div>
         </div>
         <div class="dropdown">
@@ -140,10 +141,11 @@
               <!-- Dropdown content for facitities link -->
               <router-link to="/ict">ICT</router-link>
               <router-link to="/Library">Library</router-link>
-              <router-link to="/request-info">Drama</router-link>
+              <router-link to="/drama">Drama & Art</router-link>
               <router-link to="/healthy">Healthy</router-link>
               <router-link to="/dormitory">Dormitory</router-link>
-              <router-link to="/request-info">Cafeteria</router-link>
+              <router-link to="/cafeteria">Cafeteria</router-link>
+              <router-link to="/sports">Sports</router-link>
             </div>
           </div>
           <div class="dropdown">

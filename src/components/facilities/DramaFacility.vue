@@ -1,0 +1,158 @@
+<template>
+  <div class="drama-container">
+    <section class="drama-main">
+      <NavBar />
+      <h1>Drama & Art</h1>
+      <BaseButton />
+    </section>
+    <section class="main-body">
+      <div class="images-for-drama">
+        <img :src="currentImage" alt="Current Image" />
+        <div class="btns">
+          <button class="prev-btn" @click="showPreviousImage">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button class="next-btn" @click="showNextImage">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+      <article>
+        <p>
+          Just about every student in the school participates in drama in some
+          form or another, from class assemblies to full-scale productions.
+          Drama is an integral part of the learning environment in Nursery and
+          it becomes a discrete subject in the Primary school,
+        </p>
+
+        <p>
+          We realize drama activities enhance creativity, communication, and
+          confidence. They promote teamwork, empathy, and problem-solving
+          skills, fostering self-expression and a deeper appreciation for
+          literature and the arts.
+        </p>
+        <p>
+          Sewing in school cultivates patience, fine motor skills, and
+          creativity. It instills practical abilities, fosters self-reliance,
+          and teaches the value of craftsmanship, empowering children with a
+          valuable life skill.
+        </p>
+      </article>
+    </section>
+    <BaseFooter />
+  </div>
+</template>
+
+<script>
+import NavBar from "../../components/NavBar.vue";
+import BaseFooter from "../../components/BaseFooter.vue";
+import BaseButton from "../../components/BaseButton.vue";
+export default {
+  components: { NavBar, BaseFooter, BaseButton },
+  data() {
+    return {
+      images: [
+        require("@/assets/Timimages/mdd-kids-in-white.jpeg"),
+        require("@/assets/Timimages/primary-kids-performing-cultural-dance.jpeg"),
+        require("@/assets/Timimages/primary-kids-sowing.jpeg"),
+      ],
+      currentIndex: 0,
+    };
+  },
+  computed: {
+    currentImage() {
+      return this.images[this.currentIndex];
+    },
+  },
+  methods: {
+    showNextImage() {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    },
+    showPreviousImage() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.images.length) % this.images.length;
+    },
+  },
+};
+</script>
+
+<style scoped>
+.drama-container {
+  background-color: whitesmoke;
+}
+.drama-main {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("@/assets/Timimages/primary-kids-performing-cultural-dance.jpeg");
+  background-size: cover;
+  background-position: center 50%;
+  width: 100vw;
+  height: 22rem;
+  margin-top: -1rem;
+}
+.drama-main h1 {
+  position: absolute;
+  top: 17rem;
+  left: 8rem;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 200;
+  font-size: 2.5rem;
+}
+/* styling the body */
+
+.main-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 6rem 5rem 1rem 5rem;
+}
+.images-for-drama {
+  position: relative;
+  display: inline-block;
+}
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  border: 3px solid #00aaff;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  color: black;
+  background-color: #00aaff;
+}
+.prev-btn {
+  top: 80%;
+  right: 7.5rem;
+}
+.next-btn {
+  top: 80%;
+  right: 5rem;
+  margin-left: 3rem;
+  border-left: none;
+}
+.images-for-drama img {
+  height: 20rem;
+  width: auto;
+  margin-top: 2rem;
+}
+article p {
+  margin-bottom: 2rem;
+  line-height: 30px;
+  color: #595959;
+  font-size: 16px;
+}
+strong {
+  font-weight: bolder;
+}
+i {
+  color: white;
+}
+</style>
