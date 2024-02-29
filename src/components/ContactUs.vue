@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="label-input">
-          <label class="message-lebel">Your message (optional)</label>
+          <label class="message-lebel">Your message</label>
           <div
             class="element-textarea"
             :class="{ invalid: messageValidity === 'invalid' }"
@@ -109,11 +109,13 @@
 </template>
 
 <script>
-import NavBar from "./NavBar.vue";
-import BaseFooter from "./BaseFooter.vue";
 import BaseButton from "./BaseButton.vue";
+import BaseFooter from "./BaseFooter.vue";
+import NavBar from "./NavBar.vue";
+// import BaseFooter from "../BaseFooter.vue";
+// import BaseButton from "../BaseButton.vue";
 export default {
-  components: { NavBar, BaseFooter, BaseButton },
+  components: { NavBar, BaseButton, BaseFooter },
   data() {
     return {
       name: "",

@@ -22,10 +22,12 @@
       </div>
       <div class="links">
         <div class="dropdown">
-          <router-link to="/">Home</router-link>
+          <router-link to="/" exact active-class="active">Home</router-link>
         </div>
         <div class="dropdown">
-          <router-link to="/early-years">Curricula</router-link>
+          <router-link to="/early-years" exact active-class="active"
+            >Curricula</router-link
+          >
           <div class="dropdown-content">
             <!-- Dropdown content for Curricula link -->
             <router-link to="/early-years">Early Years</router-link>
@@ -33,7 +35,9 @@
           </div>
         </div>
         <div class="dropdown">
-          <router-link to="/how-to-be-our-student">Admissions</router-link>
+          <router-link to="/how-to-be-our-student" exact active-class="active"
+            >Admissions</router-link
+          >
           <div class="dropdown-content">
             <!-- Dropdown content for Curricula link -->
             <router-link to="/how-to-be-our-student"
@@ -44,7 +48,26 @@
           </div>
         </div>
         <div class="dropdown">
-          <router-link to="/about">About</router-link>
+          <router-link to="/how-to-be-our-student" exact active-class="active"
+            >Facilities</router-link
+          >
+          <div class="dropdown-content">
+            <!-- Dropdown content for facilities link -->
+            <router-link to="/ict">ICT</router-link>
+            <router-link to="/Library">Library</router-link>
+            <router-link to="/request-info">Drama</router-link>
+            <router-link to="/healthy">Healthy</router-link>
+            <router-link to="/dormitory">Dormitory</router-link>
+            <router-link to="/request-info">Cafeteria</router-link>
+          </div>
+        </div>
+        <div class="dropdown">
+          <router-link
+            to="/message-from-the-school-principal"
+            exact
+            active-class="active"
+            >About</router-link
+          >
           <div class="dropdown-content">
             <!-- Dropdown content for Curricula link -->
             <router-link to="/mission-vision"
@@ -57,7 +80,9 @@
           </div>
         </div>
         <div class="dropdown">
-          <router-link to="/contact">Contact Us</router-link>
+          <router-link to="/contact" exact active-class="active"
+            >Contact Us</router-link
+          >
         </div>
       </div>
     </section>
@@ -81,10 +106,10 @@
         </div>
         <div class="links">
           <div class="dropdown">
-            <router-link to="/">Home</router-link>
+            <router-link to="/" exact active-class="active">Home</router-link>
           </div>
           <div class="dropdown">
-            <router-link to="/">Curricula</router-link>
+            <router-link to="/early-years">Curricula</router-link>
             <div class="dropdown-content">
               <!-- Dropdown content for Curricula link -->
               <router-link to="/early-years">Early Years</router-link>
@@ -92,10 +117,15 @@
             </div>
           </div>
           <div class="dropdown">
-            <router-link to="/admission">Admissions</router-link>
+            <router-link to="/how-to-be-our-student" exact active-class="active"
+              >Admissions</router-link
+            >
             <div class="dropdown-content">
               <!-- Dropdown content for Curricula link -->
-              <router-link to="/how-to-be-our-student"
+              <router-link
+                to="/how-to-be-our-student"
+                exact
+                active-class="active"
                 >How to Be Our Student</router-link
               >
               <router-link to="/fees-structure">Fees structure</router-link>
@@ -103,7 +133,24 @@
             </div>
           </div>
           <div class="dropdown">
-            <router-link to="message-from-the-school-principal"
+            <router-link to="/how-to-be-our-student" exact active-class="active"
+              >Facilities</router-link
+            >
+            <div class="dropdown-content">
+              <!-- Dropdown content for facitities link -->
+              <router-link to="/ict">ICT</router-link>
+              <router-link to="/Library">Library</router-link>
+              <router-link to="/request-info">Drama</router-link>
+              <router-link to="/healthy">Healthy</router-link>
+              <router-link to="/dormitory">Dormitory</router-link>
+              <router-link to="/request-info">Cafeteria</router-link>
+            </div>
+          </div>
+          <div class="dropdown">
+            <router-link
+              to="message-from-the-school-principal"
+              exact
+              active-class="active"
               >About</router-link
             >
             <div class="dropdown-content">
@@ -118,7 +165,9 @@
             </div>
           </div>
           <div class="dropdown">
-            <router-link to="/contact">Contact Us</router-link>
+            <router-link to="/contact" exact active-class="active"
+              >Contact Us</router-link
+            >
           </div>
         </div>
       </div>
@@ -168,11 +217,12 @@ export default {
 }
 .navigation {
   position: relative;
-  width: 90vw;
+  width: 95%;
+  height: 6.5rem;
   background-color: #d7d6d698;
   top: 4rem;
-  left: 4rem;
-  right: 2rem;
+  left: 1rem;
+  right: 1rem;
   padding: 0.5rem;
   z-index: 9999;
   transition: top 0.3s ease-in-out;
@@ -184,6 +234,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
+  height: 7.5rem;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 1rem;
@@ -214,9 +265,9 @@ export default {
 }
 
 .school-name-motto h4 {
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   font-style: italic;
-  color: #000;
+  color: #055228;
   font-weight: 900;
 }
 a {
@@ -244,7 +295,7 @@ a {
 .links a {
   text-decoration: none;
   margin-right: 25px;
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: #055228;
   font-weight: 400;
 }
@@ -261,9 +312,14 @@ a {
 
 .links a:hover::before,
 .links a:active::before {
-  /* Add this line for active link */
-  width: 100% !important; /* Adjust the width to cover the link */
-  background-color: #055228 !important; /* Change to the color you want */
+  width: 100% !important;
+  background-color: #055228 !important;
+}
+.links a.active {
+  /* Add this line to style the border of the active link */
+  width: 100%;
+  border: 1.5px solid #055228 !important;
+  padding: 10px 20px;
 }
 
 .dropdown {

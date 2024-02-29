@@ -98,7 +98,7 @@
         </div>
       </div>
       <div class="label-input">
-        <label for="">Your message (optional)</label>
+        <label class="message-lebel">Your message (optional)</label>
         <div
           class="element-textarea"
           :class="{ invalid: messageValidity === 'invalid' }"
@@ -113,7 +113,9 @@
         </div>
       </div>
       <el-row class="mb-4">
-        <el-button type="success" plain>Success</el-button>
+        <div class="element-button">
+          <el-button type="success" plain>Success</el-button>
+        </div>
       </el-row>
     </section>
     <BaseFooter />
@@ -253,6 +255,12 @@ button {
   color: red;
   font-size: smaller;
   margin-top: 6px;
+}
+.message-lebel {
+  text-align: center;
+}
+button {
+  padding: 1rem;
 }
 </style>
 

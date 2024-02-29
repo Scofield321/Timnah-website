@@ -148,7 +148,7 @@ footer {
   padding-left: 20px;
   line-height: 1.5;
 }
-.fa-mobile,
+.fa-phone,
 .fa-envelope {
   font-size: 20px;
   color: #81ca00;

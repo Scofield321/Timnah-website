@@ -62,6 +62,38 @@
         </div>
       </div>
     </section>
+    <section class="discover-more">
+      <h1>Discover more in a single video</h1>
+      <div class="content-vid">
+        <article>
+          <p class="content-vid-p">
+            Timnah Schools stands as a beacon of educational excellence. With
+            state-of-the-art facilities and a nurturing environment, it
+            cultivates young minds to flourish. Its innovative curriculum blends
+            academic rigour with creative exploration, fostering holistic
+            development.
+          </p>
+          <p>
+            Timnah fosters a culture of inclusivity, where diversity is
+            celebrated and every student's unique talents are embraced.
+            Dedicated educators inspire a love for learning, guiding students
+            towards success with passion and empathy. Through collaborative
+            projects and extracurricular activities, Timnah instills leadership
+            skills and cultivates a sense of community responsibility. It's more
+            than a school; it's a home where dreams take flight.
+          </p>
+        </article>
+        <div class="content-vid-video">
+          <iframe
+            width="560"
+            height="315"
+            :src="`https://www.youtube.com/embed/${videoId}`"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
     <section>
       <div class="highlights">
         <h1>Highlights</h1>
@@ -287,6 +319,7 @@ export default {
         require("../assets/Timimages/primary-main2.jpeg"),
         require("../assets/Timimages/kids-playing-in-compound.jpeg"),
       ],
+      videoId: "VA9Zc6sfRkU",
       currentIndex: 0,
       intervalId: null,
       cardData: [
@@ -437,6 +470,10 @@ section {
   margin: 6rem 5rem 1rem 4rem;
 }
 .admini-block-img img {
+  display: flex;
+  flex-direction: column;
+}
+.admini-block-img img {
   height: 15rem;
   margin: 5rem 1rem 3rem 3rem;
 }
@@ -473,14 +510,33 @@ article p {
   margin: 0 3rem 1.5rem 3rem;
 }
 
+/* sryling discover more */
+.content-vid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  height: 30rem;
+}
+.discover-more h1 {
+  text-align: center;
+  color: #81ca00;
+  margin-bottom: 4rem;
+  font-size: 2.5rem;
+}
+.content-vid-p,
+.content-vid-video {
+  margin-top: 2rem;
+}
+
 /* styling the highlight */
 .highlights {
   position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../assets/Timimages/students-with-teachers-in-circle.jpeg");
   background-size: cover;
-  height: 15rem;
+  height: 18rem;
   background-position: center 50%;
+  margin-top: -15rem;
 }
 
 .highlights h1 {
