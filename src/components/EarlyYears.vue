@@ -113,7 +113,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.2rem;
-  margin-top: 2.5rem;
+  margin-top: 6.5rem;
 }
 .images-for-kids img {
   height: 8rem;

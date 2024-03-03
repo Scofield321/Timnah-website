@@ -85,6 +85,7 @@ export default {
   text-align: center;
   margin: 2rem;
   color: #81ca00;
+  font-weight: 900;
 }
 h3 {
   text-align: center;

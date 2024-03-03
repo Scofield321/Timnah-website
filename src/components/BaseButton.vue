@@ -41,13 +41,13 @@ button:hover {
 
 @keyframes beep-border {
   0% {
-    border-color: transparent; /* Initial transparent border color */
+    border-color: transparent;
   }
   50% {
-    border-color: #007bff; /* Lighten the border color */
+    border-color: #007bff;
   }
   100% {
-    border-color: transparent; /* Return to transparent border color */
+    border-color: transparent;
   }
 }
 </style>

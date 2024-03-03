@@ -31,7 +31,7 @@
       <BaseButton />
     </section>
     <section class="wrapped-section">
-      <h1>Discover our School</h1>
+      <h1>Discover Our School</h1>
       <div class="main-body">
         <div class="home-main-images">
           <img
@@ -501,6 +501,7 @@ section {
   color: #81ca00;
   font-size: 2.5rem;
   margin-top: 2rem;
+  font-weight: 900;
 }
 article p {
   margin-bottom: 2rem;

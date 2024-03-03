@@ -12,7 +12,7 @@
       <div class="useful-links">
         <h1>Useful Links</h1>
         <div class="links">
-          <router-link to="/fees">Fees structure</router-link>
+          <router-link to="/fees-structure">Fees structure</router-link>
           <router-link to="/school-policies">School Policies</router-link>
           <router-link to="/how-to-be-our-student"
             >How to Be Our Student</router-link
@@ -40,13 +40,13 @@
         <p class="contacts-para">
           <i class="fa-solid fa-earth-americas"></i>
           <span class="earth">
-            Kasana Luwero, Mabale, Luwero, P.O BOX 400, Luweero
+            Kasana Luwero, Mabale, Luwero, P.O BOX 400, Luweero, Uganda.
           </span>
         </p>
         <p>
           <i class="fa-solid fa-phone"></i>
           <span class="phone-number">
-            Admissions Office: +256 707 549 977 | Ass. Admissions Office : +256
+            Admissions Office: +256 707 549 977 or Ass. Admissions Office : +256
             787 664 845
           </span>
         </p>
@@ -98,7 +98,7 @@ export default {
 
 footer {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url("../assets/Timimages/pitch.jpeg");
   background-repeat: no-repeat;
   background-size: cover;

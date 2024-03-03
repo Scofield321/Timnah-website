@@ -12,7 +12,7 @@
           <router-link class="logo-link" to="/">
             <h2>
               TIMNAH SCHOOLS <br />
-              LUWERO
+              LUWEERO
             </h2>
           </router-link>
           <router-link class="logo-link" to="/">
@@ -100,7 +100,7 @@
           <div class="school-name-motto">
             <h2>
               TIMNAH SCHOOLS <br />
-              LUWERO
+              LUWEERO
             </h2>
             <h4>OUR FUTURE BEGINS HERE</h4>
           </div>

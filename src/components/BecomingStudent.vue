@@ -2,11 +2,11 @@
   <div>
     <section class="become-student-main">
       <NavBar />
-      <h1>How To Be Our Student</h1>
+      <h1>How To Be A Timnah Student</h1>
       <BaseButton />
     </section>
     <section class="main-section">
-      <h1>HOW TO BECOME A STUDENT</h1>
+      <h1>HOW TO BE A TIMNAH STUDENT</h1>
       <div class="main-body">
         <div class="card-images">
           <div class="card">
@@ -156,6 +156,7 @@ export default {
   text-align: center;
   margin: 2rem;
   color: #81ca00;
+  font-weight: 900;
 }
 
 .main-body {

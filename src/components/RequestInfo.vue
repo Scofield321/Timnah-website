@@ -85,14 +85,14 @@
           </el-select>
         </div>
         <div class="label-input">
-          <label for="">Child's Date of Birth:</label>
+          <label for="">Subject:</label>
           <div
             class="element-inputs"
-            :class="{ invalid: dobValidity === 'invalid' }"
+            :class="{ invalid: subjectValidity === 'invalid' }"
           >
-            <el-input v-model="phone" type="date" clearable />
+            <el-input v-model="subject" @blur="subjectValidation" clearable />
           </div>
-          <p v-if="dobValidity === 'invalid'" class="error-p">
+          <p v-if="subjectValidity === 'invalid'" class="error-p">
             <i>This field is required</i>
           </p>
         </div>
@@ -114,7 +114,7 @@
       </div>
       <el-row class="mb-4">
         <div class="element-button">
-          <el-button type="success" plain>Success</el-button>
+          <el-button @click="sendEmail" type="success" plain>Success</el-button>
         </div>
       </el-row>
     </section>
@@ -139,8 +139,8 @@ export default {
       phone: "",
       phoneValidity: "pending",
       levels: "Early Years",
-      dob: "pending",
-      dobValidity: "pending",
+      subject: "",
+      subjectValidity: "pending",
       message: "",
       value: "Please choose an option",
       options: [
@@ -182,12 +182,34 @@ export default {
         this.phoneValidity = "valid";
       }
     },
+
     dobValidation() {
       if (this.dob === "") {
         this.dobValidity = "invalid";
       } else {
         this.dobValidity = "valid";
       }
+    },
+    sendEmail() {
+      const bodyMessage = `Subject : ${this.subject}  <br>  Parent's name : ${this.parentName} <br> Child's Name : ${this.childName} <br> Email : ${this.email} <br> Phone number : ${this.phone} <br> Level : ${this.levels}  <br> Message : ${this.message}`;
+
+      window.Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "resskris3@gmail.com",
+        Password: "23E20D9719DA0F651BB7FAFE744A0B3F63D3",
+        To: "resskris3@gmail.com",
+        From: "resskris3@gmail.com",
+        Subject: this.subject,
+        Body: bodyMessage,
+      }).then((message) => alert(message));
+      console.log(bodyMessage);
+      (this.parentName = ""),
+        (this.childName = ""),
+        (this.email = ""),
+        (this.phone = ""),
+        (this.levels = ""),
+        (this.subject = ""),
+        (this.message = "");
     },
   },
 };

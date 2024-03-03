@@ -131,6 +131,8 @@ export default {
   text-align: center;
   margin: 2rem;
   color: #81ca00;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 .main-body {
   display: grid;

@@ -59,6 +59,18 @@
               <i>This field is required</i>
             </p>
           </div>
+          <div class="label-input">
+            <label for="">Subject:</label>
+            <div
+              class="element-inputs"
+              :class="{ invalid: subjectValidity === 'invalid' }"
+            >
+              <el-input v-model="subject" @blur="subjectValidation" clearable />
+            </div>
+            <p v-if="subjectValidity === 'invalid'" class="error-p">
+              <i>This field is required</i>
+            </p>
+          </div>
         </div>
         <div class="label-input">
           <label class="message-lebel">Your message</label>
@@ -77,7 +89,7 @@
         </div>
 
         <el-row class="mb-4">
-          <el-button type="success" plain>Success</el-button>
+          <el-button type="success" @click="sendEmail" plain>Success</el-button>
         </el-row>
       </div>
       <div class="admin-img">
@@ -112,8 +124,6 @@
 import BaseButton from "./BaseButton.vue";
 import BaseFooter from "./BaseFooter.vue";
 import NavBar from "./NavBar.vue";
-// import BaseFooter from "../BaseFooter.vue";
-// import BaseButton from "../BaseButton.vue";
 export default {
   components: { NavBar, BaseButton, BaseFooter },
   data() {
@@ -124,6 +134,8 @@ export default {
       emailValidity: "pending",
       phone: "",
       phoneValidity: "pending",
+      subject: "",
+      subjectValidity: "pending",
       message: "",
       messageValidity: "pending",
     };
@@ -144,10 +156,17 @@ export default {
       }
     },
     phoneValidation() {
-      if (this.phone.trim() === "" || this.phone.length < 12) {
+      if (this.phone.trim() === "") {
         this.phoneValidity = "invalid";
       } else {
         this.phoneValidity = "valid";
+      }
+    },
+    subjectValidation() {
+      if (this.subject.trim() === "") {
+        this.subjectValidity = "invalid";
+      } else {
+        this.subjectValidity = "valid";
       }
     },
     messageValidation() {
@@ -156,6 +175,25 @@ export default {
       } else {
         this.messageValidity = "valid";
       }
+    },
+    sendEmail() {
+      const bodyMessage = `Subject : ${this.subject} <br> Full name : ${this.name} <br> Email : ${this.email} <br> Phone number : ${this.phone} <br> Message : ${this.message}`;
+
+      window.Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "resskris3@gmail.com",
+        Password: "23E20D9719DA0F651BB7FAFE744A0B3F63D3",
+        To: "resskris3@gmail.com",
+        From: "resskris3@gmail.com",
+        Subject: this.subject,
+        Body: bodyMessage,
+      }).then((message) => alert(message));
+      console.log(bodyMessage);
+      (this.name = ""),
+        (this.email = ""),
+        (this.phone = ""),
+        (this.subject = ""),
+        (this.message = "");
     },
   },
 };
