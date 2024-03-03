@@ -124,6 +124,7 @@
 import BaseButton from "./BaseButton.vue";
 import BaseFooter from "./BaseFooter.vue";
 import NavBar from "./NavBar.vue";
+import Swal from "sweetalert2";
 export default {
   components: { NavBar, BaseButton, BaseFooter },
   data() {
@@ -141,6 +142,25 @@ export default {
     };
   },
   methods: {
+    showAlert() {
+      Swal.fire({
+        title: "Sent",
+        text: "Message sent successfully",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+    },
+    showWarningDialog() {
+      const result = Swal.fire({
+        title: "Check all Fields",
+        text: "All fields must be field please",
+        icon: "warning",
+        confirmButtonColor: "#3085d6",
+      });
+      if (result.isConfirmed) {
+        return "";
+      }
+    },
     nameValidation() {
       if (this.name.trim() === "") {
         this.nameValidity = "invalid";
@@ -178,22 +198,43 @@ export default {
     },
     sendEmail() {
       const bodyMessage = `Subject : ${this.subject} <br> Full name : ${this.name} <br> Email : ${this.email} <br> Phone number : ${this.phone} <br> Message : ${this.message}`;
-
-      window.Email.send({
-        Host: "smtp.elasticemail.com",
-        Username: "resskris3@gmail.com",
-        Password: "23E20D9719DA0F651BB7FAFE744A0B3F63D3",
-        To: "resskris3@gmail.com",
-        From: "resskris3@gmail.com",
-        Subject: this.subject,
-        Body: bodyMessage,
-      }).then((message) => alert(message));
-      console.log(bodyMessage);
-      (this.name = ""),
-        (this.email = ""),
-        (this.phone = ""),
-        (this.subject = ""),
-        (this.message = "");
+      const emailRegex = /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]+$/;
+      if (
+        this.name.trim() === "" ||
+        this.email.trim() === "" ||
+        !emailRegex.test(String(this.email).trim().toLowerCase()) ||
+        this.phone.trim() === "" ||
+        this.subject.trim() === "" ||
+        this.message.trim() === ""
+      ) {
+        this.showWarningDialog();
+      } else {
+        window.Email.send({
+          Host: "smtp.elasticemail.com",
+          Username: "resskris3@gmail.com",
+          Password: "23E20D9719DA0F651BB7FAFE744A0B3F63D3",
+          To: "resskris3@gmail.com",
+          From: "resskris3@gmail.com",
+          Subject: this.subject,
+          Body: bodyMessage,
+        })
+          .then(() => {
+            this.showAlert();
+            // Clear input fields
+            this.name = "";
+            this.email = "";
+            this.phone = "";
+            this.subject = "";
+            this.message = "";
+          })
+          .catch((error) => {
+            console.error("Error sending email:", error);
+            this.showAlert(
+              "Failed to send email. Please try again later.",
+              "error"
+            );
+          });
+      }
     },
   },
 };
